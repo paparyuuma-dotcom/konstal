@@ -1,0 +1,205 @@
+<!doctype html>
+
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RYUUMA VAN ASHVYR — Link Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#08020f;
+      --accent-1:#6de3ff;
+      --accent-2:#ff6ec7;
+      --glass: rgba(255,255,255,0.06);
+      --glass-2: rgba(255,255,255,0.03);
+      --text: #eaf6ff;
+      --muted: #9aa6b2;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: var(--bg1);
+      color:var(--text);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+      overflow:hidden;
+    }/* Sparkle background */
+.sparkle{
+  position:fixed;
+  width:3px;height:3px;
+  background:var(--accent-1);
+  border-radius:50%;
+  animation:twinkle 2s infinite;
+  opacity:0;
+}
+@keyframes twinkle{
+  0%,100%{opacity:0}
+  50%{opacity:1}
+}
+
+.blob{position:fixed;filter:blur(60px) saturate(120%);opacity:0.22;mix-blend-mode:screen;pointer-events:none;}
+.blob.b1{width:520px;height:520px;left:-120px;top:-120px;background:linear-gradient(45deg,var(--accent-1),#5b7bff);animation:move1 18s linear infinite}
+.blob.b2{width:420px;height:420px;right:-80px;bottom:-80px;background:linear-gradient(120deg,var(--accent-2),#9b6dff);animation:move2 22s linear infinite}
+@keyframes move1{0%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,60px) scale(1.06)}100%{transform:translate(0,0) scale(1)}}
+@keyframes move2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-30px,-60px) scale(1.08)}100%{transform:translate(0,0) scale(1)}}
+
+.container{
+  width:100%;
+  max-width:760px;
+  backdrop-filter: blur(8px) saturate(120%);
+  background: linear-gradient(180deg,var(--glass), var(--glass-2));
+  border-radius:20px;
+  padding:36px;
+  box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+  position:relative;
+  border:1px solid rgba(255,255,255,0.04);
+  text-align:center;
+  z-index:2;
+  animation:glow 6s linear infinite, float 6s ease-in-out infinite;
+}
+
+@keyframes glow{
+  0%{box-shadow:0 0 20px var(--accent-1)}
+  50%{box-shadow:0 0 40px var(--accent-2)}
+  100%{box-shadow:0 0 20px var(--accent-1)}
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+
+.profile-pic{width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.1);box-shadow:0 0 20px rgba(109,227,255,0.6);cursor:pointer;animation:glow 6s linear infinite, float 6s ease-in-out infinite}
+.name{margin-top:16px;font-weight:800;font-size:22px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));-webkit-background-clip:text;color:transparent}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.box{
+  position:relative;
+  background:rgba(255,255,255,0.02);
+  border:2px solid transparent;
+  border-image: linear-gradient(90deg,var(--accent-1),var(--accent-2)) 1;
+  border-radius:10px;
+  padding:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  overflow:hidden;
+  transition:transform .2s;
+  animation:glow 6s linear infinite, float 7s ease-in-out infinite;
+  min-height:150px;
+}
+.box:hover{transform:translateY(-6px) scale(1.02)}
+.box img{max-width:100%;border-radius:6px;display:block}
+
+/* Shine effect */
+.box::after{
+  content:'';
+  position:absolute;
+  top:0;left:-75%;
+  width:50%;height:100%;
+  background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.4) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-25deg);
+}
+.box:hover::after{animation:shine 1s;}
+@keyframes shine{100%{left:125%}}
+
+.box-text{padding:10px;font-weight:600;font-size:15px;color:var(--text);text-align:center}
+.copy-btn{margin-top:10px;padding:6px 12px;border:none;border-radius:6px;background:linear-gradient(90deg,var(--accent-1),var(--accent-2));color:#06101a;font-weight:700;cursor:pointer;animation:glow 6s linear infinite}
+
+.pricelist{margin-top:32px;}
+.pricelist-title{text-align:center;font-weight:700;color:var(--accent-1);margin-bottom:16px;font-size:16px;animation:glow 6s linear infinite;white-space:pre-line}
+.pricelist-content{text-align:center;font-size:14px;line-height:1.8;white-space:pre-line;color:var(--accent-2)}
+.pricelist-content div{transition:all .3s}
+.pricelist-content div:hover{color:var(--accent-1);text-shadow:0 0 8px var(--accent-1)}
+
+footer{font-size:12px;color:var(--muted);margin-top:24px;text-align:center}
+
+/* Glitch overlay */
+.glitch{
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:repeating-linear-gradient(0deg,rgba(255,255,255,0.05) 0,rgba(255,255,255,0.05) 2px,transparent 2px,transparent 4px);
+  backdrop-filter:brightness(2);
+  z-index:10;
+  display:none;
+  animation:glitchFlash 2s;
+}
+@keyframes glitchFlash{
+  0%{opacity:0}
+  20%{opacity:1}
+  80%{opacity:1}
+  100%{opacity:0}
+}
+
+  </style>
+</head>
+<body>
+  <div class="blob b1" aria-hidden></div>
+  <div class="blob b2" aria-hidden></div>  <main class="container">
+    <a href="https://wa.me//6285187505482" target="_blank">
+      <img class="profile-pic" src="https://files.catbox.moe/ynoppl.jpg" alt="Profile" />
+    </a>
+    <div class="name">RYUUMA VAN ASHVYR</div><div class="grid">
+  <a class="box" href="https://chat.whatsapp.com/JYNjatjDx5i0tfDCWql9Yh?mode=ems_copy_t" target="_blank"><img src="https://files.catbox.moe/uoicry.jpg" alt="WA Group 1"></a>
+  <a class="box" href="https://chat.whatsapp.com/F15Pli8EuvsCTC8muSEal5?mode=ems_copy_t" target="_blank"><img src="https://files.catbox.moe/uoicry.jpg" alt="WA Group 2"></a>
+  <a class="box" href="https://wa.me/p/31389360454044682/6285187505482" target="_blank"><img src="https://files.catbox.moe/nh45yl.jpg" alt="WA Contact"></a>
+  <div class="box" style="flex-direction:column">
+    <div class="box-text">DANA : 085706645429</div>
+    <button class="copy-btn" onclick="navigator.clipboard.writeText('085706645429')">Salin</button>
+  </div>
+</div>
+
+<div class="pricelist">
+  <div class="pricelist-title">✦ PRICE LIST FEE ✦</div>
+  <div class="pricelist-content">
+    <div>✦ 1k – 50k : 1k</div>
+    <div>✦ 51k – 100k : 2k</div>
+    <div>✦ 101k–200k : 3k</div>
+    <div>✦ 201k–400k : 4k</div>
+    <div>✦ 401k–600k : 5k</div>
+    <div>✦ 601k–700k : 6k</div>
+    <div>✦ 701k–900k : 7k</div>
+    <div>✦ 901k–1jt : 10k</div>
+    <div>✦ 1jt–2jt : 20k</div>
+    <div>✦ 2jt–10jt : 1.5%</div>
+    <div>⚠️ Tambahan Fee:</div>
+    <div>+5k MC Pending/Delay</div>
+    <div>+5k All Reff (tanpa perjanjian = NO REFF)</div>
+    <div>❌ TRX Cancel → Fee tetap terpotong</div>
+  </div>
+</div>
+
+<footer>Made with ❤️ — theme inspired by Ryuuma site</footer>
+
+  </main>  <!-- Sparkles JS -->  <script>
+    for(let i=0;i<60;i++){
+      const s=document.createElement('div');
+      s.className='sparkle';
+      s.style.left=Math.random()*100+'vw';
+      s.style.top=Math.random()*100+'vh';
+      s.style.animationDuration=(1+Math.random()*3)+'s';
+      document.body.appendChild(s);
+    }
+
+    // Glitch overlay every 15s
+    const glitch=document.createElement('div');
+    glitch.className='glitch';
+    document.body.appendChild(glitch);
+
+    setInterval(()=>{
+      glitch.style.display='block';
+      glitch.style.animation='glitchFlash 2s';
+      setTimeout(()=>{
+        glitch.style.display='none';
+      },2000);
+    },15000);
+  </script></body>
+</html>
